@@ -8,7 +8,6 @@ const StudentAuth = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  // ✅ Make this async
   const handleLogin = async () => {
     try {
       const res = await fetch("http://localhost:5000/api/students/login", {
@@ -34,28 +33,35 @@ const StudentAuth = () => {
   };
 
   return (
-    <div>
-      <h2>Student Login</h2>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Roll Number"
-        value={roll}
-        onChange={(e) => setRoll(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Class"
-        value={studentClass}
-        onChange={(e) => setStudentClass(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      <p>{message}</p>
+    <div style={{ display: "flex", minHeight: "80vh", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: 360, padding: 20, border: "1px solid #ddd", borderRadius: 8 }}>
+        <h2 style={{ textAlign: "center" }}>Student Login</h2>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          style={{ width: "100%", padding: 8, marginBottom: 8 }}
+        />
+        <input
+          type="text"
+          placeholder="Roll Number"
+          value={roll}
+          onChange={(e) => setRoll(e.target.value)}
+          style={{ width: "100%", padding: 8, marginBottom: 8 }}
+        />
+        <input
+          type="text"
+          placeholder="Class"
+          value={studentClass}
+          onChange={(e) => setStudentClass(e.target.value)}
+          style={{ width: "100%", padding: 8, marginBottom: 8 }}
+        />
+        <button onClick={handleLogin} style={{ width: "100%", padding: 8, marginTop: 6 }}>
+          Login
+        </button>
+        <p style={{ textAlign: "center" }}>{message}</p>
+      </div>
     </div>
   );
 };
