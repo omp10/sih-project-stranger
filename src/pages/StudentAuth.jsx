@@ -14,7 +14,7 @@ const StudentAuth = () => {
       const res = await fetch("http://localhost:5000/api/students/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ roll_number: roll, class: studentClass }),
+        body: JSON.stringify({ roll_number: roll, class_name: studentClass }),
       });
 
       const data = await res.json();
@@ -25,7 +25,7 @@ const StudentAuth = () => {
         setMessage("✅ Login successful");
         navigate("/student-dashboard");
       } else {
-        setMessage("❌ " + data.error);
+        setMessage("❌ " + (data.message || data.error || "Login failed"));
       }
     } catch (err) {
       console.error(err);

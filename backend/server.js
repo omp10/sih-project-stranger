@@ -79,7 +79,7 @@ app.post('/api/student/register', (req, res) => {
 });
 
 // Student login (roll + class)
-app.post('/api/student/login', (req, res) => {
+app.post('/api/students/login', (req, res) => {
   const { roll_number, class_name } = req.body;
   if (!roll_number || !class_name) return res.status(400).json({ message: 'Missing fields' });
 

@@ -17,10 +17,10 @@ const TeacherLogin: React.FC = () => {
 
     // Example login logic
     try {
-      const res = await fetch('http://localhost:5000/teacher/login', {
+      const res = await fetch('http://localhost:5000/api/teacher/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ loginId, password }),
+        body: JSON.stringify({ login_id: loginId, password }),
       });
 
       const data = await res.json();
